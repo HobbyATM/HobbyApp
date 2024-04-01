@@ -44,6 +44,7 @@ class SigninActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        Toast.makeText(this, "Kayıt Basariyla Gerceklesti", Toast.LENGTH_SHORT).show()
                         saveLoginStatus(true)
                         startMainApp()
                     } else {

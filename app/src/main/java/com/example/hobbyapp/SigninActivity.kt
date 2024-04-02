@@ -32,7 +32,7 @@ class SigninActivity : AppCompatActivity() {
             startMainApp()
             return
         }
-        binding.gotosignupactivitybutton.setOnClickListener(){
+        binding.signupbutton.setOnClickListener(){
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }

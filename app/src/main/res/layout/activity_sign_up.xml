@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:background="#fff7e6"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -12,54 +14,99 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="KayıtOl"
-        android:layout_marginTop="50dp"
-        android:textSize="20sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        >
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="174dp"
+        android:layout_marginBottom="480dp"
+        android:text="KayıtOl"
+        android:textSize="20sp">
 
     </TextView>
 
     <EditText
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:id="@+id/emailtext"
-        android:hint="Emailinizi giriniz."
-        android:layout_gravity="center"
-        >
-    </EditText>
-
-    <EditText
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="400dp"
+        android:hint="  Emailinizi giriniz."
+
+        />
+
+    <EditText
         android:id="@+id/passwordtext"
-        android:hint="Şifrenizi giriniz."
-        android:layout_gravity="center"
-        >
-    </EditText>
-
-    <EditText
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="310dp"
+        android:hint="   Şifrenizi giriniz."
+       />
+
+    <EditText
         android:id="@+id/passwordrepaettext"
-        android:hint="Tekrar şifrenizi giriniz."
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        >
-    </EditText>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Kayıt Ol"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="220dp"
+        android:hint="   Şifre tekrar."
+        />
+    <Button
         android:id="@+id/signupbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="120dp"
+        android:hint="Kayıt Ol"
         >
-
     </Button>
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="212dp"
+        android:layout_height="186dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="525dp"
+        app:srcCompat="@drawable/kullanici_giris_element" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/background_elements" />
+
+
+</RelativeLayout>

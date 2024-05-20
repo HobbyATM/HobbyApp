@@ -33,7 +33,10 @@ class MainApp : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Kullanıcı ID bulunamadı", Toast.LENGTH_SHORT).show()
         }
+
+        binding.bottomNavigationView.selectedItemId = R.id.home
         replaceFragment(Home())
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.settings -> replaceFragment(Settings())

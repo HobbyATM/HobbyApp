@@ -286,7 +286,7 @@ public class LibrariesForLibsInPluginsBlock extends AbstractExternalDependencyFa
         public VersionAccessors(ProviderFactory providers, DefaultVersionCatalog config) { super(providers, config); }
 
             /**
-             * Returns the version associated to this alias: activity (1.8.0)
+             * Returns the version associated to this alias: activity (1.9.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml
@@ -318,7 +318,7 @@ public class LibrariesForLibsInPluginsBlock extends AbstractExternalDependencyFa
             public Provider<String> getConstraintlayout() { return getVersion("constraintlayout"); }
 
             /**
-             * Returns the version associated to this alias: coreKtx (1.12.0)
+             * Returns the version associated to this alias: coreKtx (1.13.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml
@@ -334,7 +334,7 @@ public class LibrariesForLibsInPluginsBlock extends AbstractExternalDependencyFa
             public Provider<String> getEspressoCore() { return getVersion("espressoCore"); }
 
             /**
-             * Returns the version associated to this alias: firebaseAuth (22.3.1)
+             * Returns the version associated to this alias: firebaseAuth (23.0.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml
@@ -342,7 +342,7 @@ public class LibrariesForLibsInPluginsBlock extends AbstractExternalDependencyFa
             public Provider<String> getFirebaseAuth() { return getVersion("firebaseAuth"); }
 
             /**
-             * Returns the version associated to this alias: firebaseFirestore (24.11.0)
+             * Returns the version associated to this alias: firebaseFirestore (25.0.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml
@@ -382,7 +382,7 @@ public class LibrariesForLibsInPluginsBlock extends AbstractExternalDependencyFa
             public Provider<String> getKotlin() { return getVersion("kotlin"); }
 
             /**
-             * Returns the version associated to this alias: material (1.11.0)
+             * Returns the version associated to this alias: material (1.12.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml

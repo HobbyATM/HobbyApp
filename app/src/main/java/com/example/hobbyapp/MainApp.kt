@@ -1,11 +1,11 @@
 package com.example.hobbyapp
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.hobbyapp.databinding.ActivityMainAppBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -33,13 +33,18 @@ class MainApp : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Kullanıcı ID bulunamadı", Toast.LENGTH_SHORT).show()
         }
+        replaceFragment(Home())
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.settings -> replaceFragment(Settings())
+                R.id.home -> replaceFragment(Home())
+                R.id.profile -> replaceFragment(Profile())
 
-        binding.logoutbutton.setOnClickListener {
-            saveLoginStatus(false)
-            firebaseAuth.signOut()
-            startActivity(Intent(this, SigninActivity::class.java))
-            Toast.makeText(this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show()
-            finish()
+                else ->{
+
+                }
+            }
+            true
         }
     }
 
@@ -49,8 +54,6 @@ class MainApp : AppCompatActivity() {
                 if (document != null) {
                     val userName = document.getString("name")
                     val userEmail = document.getString("email")
-                    binding.userNameTextView.text = userName
-                    binding.userEmailTextView.text = userEmail
                 } else {
                     Toast.makeText(this, "Belge bulunamadı", Toast.LENGTH_SHORT).show()
                 }
@@ -64,5 +67,12 @@ class MainApp : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.putBoolean("isLoggedIn", status)
         editor.apply()
+    }
+
+    private fun replaceFragment(fragment : Fragment){
+        val fragmentManager = supportFragmentManager
+        val  fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.commit()
     }
 }

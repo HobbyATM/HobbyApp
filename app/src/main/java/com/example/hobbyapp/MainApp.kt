@@ -42,6 +42,7 @@ class MainApp : AppCompatActivity() {
                 R.id.settings -> replaceFragment(Settings())
                 R.id.home -> replaceFragment(Home())
                 R.id.profile -> replaceFragment(Profile())
+                R.id.add -> replaceFragment(AddEvent())
 
                 else ->{
 

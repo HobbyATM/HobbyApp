@@ -4,9 +4,12 @@
     <item android:title="Settings"
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings"/>
-    <item android:title="Home"
+    <item android:title="Events"
         android:id="@+id/home"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_menu"/>
+    <item android:title="Add"
+        android:id="@+id/add"
+        android:icon="@drawable/add_event"/>
     <item android:title="Profile"
         android:id="@+id/profile"
         android:icon="@drawable/ic_person"/>

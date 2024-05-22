@@ -27,7 +27,6 @@ class MainApp : AppCompatActivity() {
 
         val uid = sharedPreferences.getString("uid", null)
 
-        Toast.makeText(this, "Kullanıcı ID == $uid", Toast.LENGTH_SHORT).show()
         if (uid != null) {
             fetchUserData(uid)
         } else {

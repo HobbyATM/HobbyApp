@@ -1,31 +1,32 @@
 package com.example.hobbyapp
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AddEvent.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddEvent : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var eventNameEditText: EditText
+    private lateinit var maxParticipantsEditText: EditText
+    private lateinit var eventDateEditText: EditText
+    private lateinit var eventDetailsEditText: EditText
+    private lateinit var eventLocationEditText: EditText
+    private lateinit var createEventButton: Button
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -33,27 +34,80 @@ class AddEvent : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_event, container, false)
+        val view = inflater.inflate(R.layout.fragment_add_event, container, false)
+
+        // UI bileşenlerini bağlama
+        eventNameEditText = view.findViewById(R.id.eventName)
+        maxParticipantsEditText = view.findViewById(R.id.maxParticipants)
+        eventDateEditText = view.findViewById(R.id.eventDateEditText)
+        eventDetailsEditText = view.findViewById(R.id.eventDetails)
+        eventLocationEditText = view.findViewById(R.id.eventLocation)
+        createEventButton = view.findViewById(R.id.createEventButton)
+
+        // Firebase Database referansını al
+        database = FirebaseDatabase.getInstance("https://hobbyapp-75fdb-default-rtdb.europe-west1.firebasedatabase.app").reference.child("Events")
+        Toast.makeText(context, "database adı == $database", Toast.LENGTH_SHORT).show()
+        // Tarih seçici dialogu açma
+        eventDateEditText.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+        // Buton tıklama olayını ayarla
+        createEventButton.setOnClickListener {
+
+            createEvent()
+        }
+
+        return view
+    }
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            { _, selectedYear, selectedMonth, selectedDay ->
+                // Seçilen tarihi EditText'e yazma
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                eventDateEditText.setText(selectedDate)
+            },
+            year, month, day
+        )
+        datePickerDialog.show()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddEvent.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AddEvent().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun createEvent() {
+        val eventName = eventNameEditText.text.toString().trim()
+        val maxParticipants = maxParticipantsEditText.text.toString().trim().toIntOrNull() ?: 0
+        val eventDate = eventDateEditText.text.toString().trim()
+        val eventDetails = eventDetailsEditText.text.toString().trim()
+        val eventLocation = eventLocationEditText.text.toString().trim()
+
+        if (eventName.isEmpty() || eventDate.isEmpty() || eventDetails.isEmpty() || eventLocation.isEmpty()) {
+            // Hata mesajı göster
+            Toast.makeText(context, "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val eventId = database.push().key
+
+
+
+        if (eventId != null) {
+            Toast.makeText(context, "database adı == $eventId", Toast.LENGTH_SHORT).show()
+            val event = Event(eventName, maxParticipants, eventDate, eventDetails, eventLocation)
+            database.child(eventId).setValue(event)
+                .addOnSuccessListener {
+                    Toast.makeText(context, "Etkinlik başarıyla oluşturuldu", Toast.LENGTH_SHORT).show()
                 }
-            }
+                .addOnFailureListener { e ->
+                    Toast.makeText(context, "Etkinlik oluşturulamadı: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        }
+        else{
+            Toast.makeText(context, "eventıd girmedi.", Toast.LENGTH_SHORT).show()
+        }
     }
 }

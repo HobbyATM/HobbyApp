@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     android:background="#fff7e6"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".SignUpActivity">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,10 +19,40 @@
         android:layout_marginStart="168dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="168dp"
-        android:layout_marginBottom="480dp"
+        android:layout_marginBottom="580dp"
         android:text="Kayıt Ol"
         android:textSize="20sp">
     </TextView>
+
+    <EditText
+        android:id="@+id/usernametext"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="500dp"
+        android:hint="Ad-Soyad giriniz."
+        />
+
+    <EditText
+        android:id="@+id/phonetext"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="400dp"
+        android:hint="Telefon numaranızı giriniz."
+        />
 
     <EditText
         android:id="@+id/emailtext"
@@ -37,9 +65,8 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginBottom="400dp"
-        android:hint="  Emailinizi giriniz."
-
+        android:layout_marginBottom="300dp"
+        android:hint="Emailinizi giriniz."
         />
 
     <EditText
@@ -53,9 +80,9 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginBottom="310dp"
-        android:hint="   Şifrenizi giriniz."
-       />
+        android:layout_marginBottom="210dp"
+        android:hint="Şifrenizi giriniz."
+        />
 
     <EditText
         android:id="@+id/passwordrepaettext"
@@ -68,9 +95,10 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginBottom="220dp"
-        android:hint="   Şifre tekrar."
+        android:layout_marginBottom="120dp"
+        android:hint="Şifre tekrar."
         />
+
     <Button
         android:id="@+id/signupbutton"
         android:layout_width="match_parent"
@@ -82,10 +110,9 @@
         android:layout_marginStart="123dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="123dp"
-        android:layout_marginBottom="120dp"
-        android:hint="Kayıt Ol"
-        >
-    </Button>
+        android:layout_marginBottom="50dp"
+        android:text="Kayıt Ol"
+        />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -98,7 +125,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="525dp"
+        android:layout_marginBottom="625dp"
         app:srcCompat="@drawable/kullanici_giris_element" />
 
     <ImageView
@@ -106,6 +133,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/background_elements" />
-
 
 </RelativeLayout>

@@ -6,6 +6,6 @@ data class Event(
     val eventDate: String = "",
     val eventDetails: String = "",
     val eventLocation: String = "",
-    val createdBy: String,
-    val participants: List<String>
+    val createdBy: String = "",
+    val participants: List<String> = listOf()
 )

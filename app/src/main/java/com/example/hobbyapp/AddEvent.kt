@@ -56,7 +56,7 @@ class AddEvent : Fragment() {
 
         // Places API başlatma
         if (!Places.isInitialized()) {
-            Places.initialize(requireContext(), "YOUR_API_KEY")
+            Places.initialize(requireContext(), "AIzaSyCdD-otI8cncBQWLPDw4FSPW2kIutqe5IA")
         }
 
         // Tarih seçici dialogu açma

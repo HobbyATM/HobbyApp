@@ -52,6 +52,7 @@
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="400dp"
         android:hint="Telefon numaranızı giriniz."
+        android:inputType="phone"
         />
 
     <EditText

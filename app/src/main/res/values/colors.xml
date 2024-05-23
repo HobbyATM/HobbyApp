@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="hobby_orange">#ff5757</color>
+    <color name="hobby_cream">#f1efe7</color>
 </resources>

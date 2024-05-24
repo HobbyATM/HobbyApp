@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".ProfileFragment">
+    tools:context=".Profile">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +50,9 @@
             android:id="@+id/created_events_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="24dp"
+            tools:listitem="@layout/item_layout"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,6 +65,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/joined_events_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_layout"
+            />
     </LinearLayout>
 </ScrollView>

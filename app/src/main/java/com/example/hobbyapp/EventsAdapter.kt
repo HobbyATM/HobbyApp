@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EventsAdapter(private val context: Context, private val eventList: List<Event>) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
+class EventsAdapter(private val context: Context, private val eventList: List<Event>, private val eventIds: List<String>) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val eventName: TextView = itemView.findViewById(R.id.textViewName)
@@ -24,11 +24,12 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val currentEvent = eventList[position]
+        val currentEventId = eventIds[position]
         holder.eventName.text = currentEvent.eventName
         holder.eventDate.text = currentEvent.eventDate
 
         holder.detailsButton.setOnClickListener {
-            val dialog = EventDetailsDialog(context, currentEvent)
+            val dialog = EventDetailsDialog(context, currentEventId)
             dialog.show()
         }
 

@@ -17,6 +17,7 @@ class Home : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var eventsAdapter: EventsAdapter
     private lateinit var eventList: ArrayList<Event>
+    private lateinit var eventIds: ArrayList<String>
     private lateinit var database: DatabaseReference
 
     override fun onCreateView(
@@ -30,7 +31,8 @@ class Home : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         eventList = arrayListOf()
-        eventsAdapter = EventsAdapter(requireContext(), eventList)
+        eventIds = arrayListOf()
+        eventsAdapter = EventsAdapter(requireContext(), eventList, eventIds)
         recyclerView.adapter = eventsAdapter
 
         database = FirebaseDatabase.getInstance("https://hobbyapp-75fdb-default-rtdb.europe-west1.firebasedatabase.app").reference.child("Events")
@@ -38,10 +40,12 @@ class Home : Fragment() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 eventList.clear()
+                eventIds.clear()
                 for (dataSnapshot in snapshot.children) {
                     val event = dataSnapshot.getValue(Event::class.java)
                     if (event != null) {
                         eventList.add(event)
+                        eventIds.add(dataSnapshot.key!!)
                     }
                 }
                 eventsAdapter.notifyDataSetChanged()

@@ -23,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase
 import java.util.Calendar
 
 class AddEvent : Fragment() {
-
     private lateinit var eventNameEditText: EditText
     private lateinit var maxParticipantsEditText: EditText
     private lateinit var eventDateEditText: EditText
@@ -50,6 +49,7 @@ class AddEvent : Fragment() {
         createEventButton = view.findViewById(R.id.createEventButton)
         selectLocationButton = view.findViewById(R.id.selectLocationButton)
 
+        // Firebase Database referansını al
         // Firebase Database referansını al
         database = FirebaseDatabase.getInstance("https://hobbyapp-75fdb-default-rtdb.europe-west1.firebasedatabase.app").reference.child("Events")
         auth = FirebaseAuth.getInstance()
@@ -132,7 +132,8 @@ class AddEvent : Fragment() {
         val eventId = database.push().key
 
         if (eventId != null) {
-            val event = Event(eventName, maxParticipants, eventDate, eventDetails, eventLocation, currentUser.uid, listOf(currentUser.uid))
+            val participants = mapOf(currentUser.uid to true)
+            val event = Event(eventName, maxParticipants, eventDate, eventDetails, eventLocation, currentUser.uid, participants)
             database.child(eventId).setValue(event)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Etkinlik başarıyla oluşturuldu", Toast.LENGTH_SHORT).show()

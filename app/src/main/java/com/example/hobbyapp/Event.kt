@@ -7,5 +7,5 @@ data class Event(
     val eventDetails: String = "",
     val eventLocation: String = "",
     val createdBy: String = "",
-    val participants: List<String> = listOf()
+    val participants: Map<String, Boolean> = emptyMap()
 )

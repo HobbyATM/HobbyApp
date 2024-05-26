@@ -34,7 +34,8 @@ class SignUpActivity : AppCompatActivity() {
                 "username" to username,
                 "phone" to phone,
                 "email" to email,
-                "password" to password
+                "password" to password,
+                "joinedEvents" to emptyList<String>() // Başlangıçta boş bir liste
             )
 
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPass.isNotEmpty() && username.isNotEmpty() && phone.isNotEmpty()) {

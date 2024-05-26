@@ -1,23 +1,20 @@
 package com.example.hobbyapp
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
-
 class Home : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var eventsAdapter: EventsAdapter
-    private lateinit var eventList: ArrayList<Event>
-    private lateinit var eventIds: ArrayList<String>
+    private lateinit var eventList: MutableList<Event>
+    private lateinit var eventIds: MutableList<String>
     private lateinit var database: DatabaseReference
 
     override fun onCreateView(
@@ -28,31 +25,29 @@ class Home : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
-
-        eventList = arrayListOf()
-        eventIds = arrayListOf()
+        eventList = mutableListOf()
+        eventIds = mutableListOf()
         eventsAdapter = EventsAdapter(requireContext(), eventList, eventIds)
         recyclerView.adapter = eventsAdapter
 
         database = FirebaseDatabase.getInstance("https://hobbyapp-75fdb-default-rtdb.europe-west1.firebasedatabase.app").reference.child("Events")
-
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 eventList.clear()
                 eventIds.clear()
-                for (dataSnapshot in snapshot.children) {
-                    val event = dataSnapshot.getValue(Event::class.java)
-                    if (event != null) {
+                for (eventSnapshot in snapshot.children) {
+                    val event = eventSnapshot.getValue(Event::class.java)
+                    val eventId = eventSnapshot.key
+                    if (event != null && eventId != null) {
                         eventList.add(event)
-                        eventIds.add(dataSnapshot.key!!)
+                        eventIds.add(eventId)
                     }
                 }
                 eventsAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Failed to load events: ${error.message}", Toast.LENGTH_SHORT).show()
+                // Handle error
             }
         })
 

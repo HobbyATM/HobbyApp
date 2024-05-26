@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -30,6 +31,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Join" />
+
+        <TextView
+            android:id="@+id/textViewJoined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Joined"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:textColor="@android:color/holo_green_dark"/>
 
         <Button
             android:id="@+id/buttonDetails"

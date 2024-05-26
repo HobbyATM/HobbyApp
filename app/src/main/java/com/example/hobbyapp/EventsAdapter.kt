@@ -1,7 +1,6 @@
 package com.example.hobbyapp
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +19,7 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
         val eventName: TextView = itemView.findViewById(R.id.textViewName)
         val eventDate: TextView = itemView.findViewById(R.id.textViewDate)
         val joinButton: Button = itemView.findViewById(R.id.buttonJoin)
+        val joinedText: TextView = itemView.findViewById(R.id.textViewJoined)
         val detailsButton: Button = itemView.findViewById(R.id.buttonDetails)
     }
 
@@ -39,8 +39,10 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
         holder.eventName.text = currentEvent.eventName
         holder.eventDate.text = currentEvent.eventDate
 
+        checkIfJoined(currentEventId, holder)
+
         holder.joinButton.setOnClickListener {
-            joinEvent(currentEventId)
+            joinEvent(currentEventId, holder)
         }
 
         holder.detailsButton.setOnClickListener {
@@ -52,7 +54,31 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
         return eventList.size
     }
 
-    private fun joinEvent(eventId: String) {
+    private fun checkIfJoined(eventId: String, holder: EventViewHolder) {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val userId = currentUser.uid
+            val eventRef = database.child("Events").child(eventId).child("participants")
+
+            eventRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.hasChild(userId)) {
+                        holder.joinButton.visibility = View.GONE
+                        holder.joinedText.visibility = View.VISIBLE
+                    } else {
+                        holder.joinButton.visibility = View.VISIBLE
+                        holder.joinedText.visibility = View.GONE
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error
+                }
+            })
+        }
+    }
+
+    private fun joinEvent(eventId: String, holder: EventViewHolder) {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val userId = currentUser.uid
@@ -63,7 +89,7 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
                     val participants = mutableData.getValue(object : GenericTypeIndicator<MutableMap<String, Boolean>>() {}) ?: mutableMapOf()
 
                     if (participants.containsKey(userId)) {
-                        return Transaction.success(mutableData) // Zaten katılmış
+                        return Transaction.success(mutableData) // Already joined
                     }
 
                     participants[userId] = true
@@ -74,21 +100,23 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
 
                 override fun onComplete(databaseError: DatabaseError?, committed: Boolean, dataSnapshot: DataSnapshot?) {
                     if (committed) {
-                        // Kullanıcı etkinliğe başarıyla katıldı, Firestore'a ekle
+                        // User successfully joined the event, add to Firestore
                         firestore.collection("User").document(userId).get().addOnSuccessListener { document ->
                             val joinedEvents = document.get("joinedEvents") as? MutableList<String> ?: mutableListOf()
                             joinedEvents.add(eventId)
                             firestore.collection("User").document(userId)
                                 .set(mapOf("joinedEvents" to joinedEvents), SetOptions.merge())
                                 .addOnSuccessListener {
-                                    Toast.makeText(context, "Etkinliğe başarıyla katıldınız", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Successfully joined the event", Toast.LENGTH_SHORT).show()
+                                    holder.joinButton.visibility = View.GONE
+                                    holder.joinedText.visibility = View.VISIBLE
                                 }
                                 .addOnFailureListener { e ->
-                                    Toast.makeText(context, "Etkinliğe katılamadı: ${e.message}", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Failed to join the event: ${e.message}", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     } else {
-                        Toast.makeText(context, "Etkinliğe katılamadı: ${databaseError?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Failed to join the event: ${databaseError?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             })

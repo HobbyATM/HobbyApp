@@ -13,7 +13,7 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 
-class EventsAdapter(private val context: Context, private val eventList: List<Event>, private val eventIds: List<String>) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
+class EventsAdapter(private val context: Context, private var eventList: List<Event>, private var eventIds: List<String>) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val eventName: TextView = itemView.findViewById(R.id.textViewName)
@@ -52,6 +52,11 @@ class EventsAdapter(private val context: Context, private val eventList: List<Ev
 
     override fun getItemCount(): Int {
         return eventList.size
+    }
+
+    fun updateList(newEventList: List<Event>) {
+        eventList = newEventList
+        notifyDataSetChanged()
     }
 
     private fun checkIfJoined(eventId: String, holder: EventViewHolder) {

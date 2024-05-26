@@ -5,10 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search events" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_event" />
+        tools:listitem="@layout/item_event"
+        android:layout_marginTop="50dp"
+        />
 
 </FrameLayout>

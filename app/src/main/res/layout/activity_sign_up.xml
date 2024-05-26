@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="#fff7e6"
+    android:background="#f1efe7"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -99,7 +99,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="525dp"
-        app:srcCompat="@drawable/kullanici_giris_element" />
+        app:srcCompat="@drawable/hobby_cream" />
 
     <ImageView
         android:id="@+id/imageView4"

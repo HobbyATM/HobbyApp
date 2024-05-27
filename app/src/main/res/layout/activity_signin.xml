@@ -34,10 +34,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginStart="123dp"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="123dp"
+        android:layout_marginEnd="110dp"
         android:layout_marginBottom="360dp"
+        android:background="@drawable/edittext_background"
         android:hint="E-mailinizi giriniz" />
 
     <EditText
@@ -48,9 +49,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginStart="123dp"
-        android:layout_marginEnd="123dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="110dp"
         android:layout_marginBottom="280dp"
+        android:background="@drawable/edittext_background"
         android:hint="Şifrenizi giriniz" />
 
     <Button

@@ -133,7 +133,7 @@ class AddEvent : Fragment() {
 
         if (eventId != null) {
             val participants = mapOf(currentUser.uid to true)
-            val event = Event(eventName, maxParticipants, eventDate, eventDetails, eventLocation, currentUser.uid, participants)
+            val event = Event(eventId, eventName, maxParticipants, eventDate, eventDetails, eventLocation, currentUser.uid, participants)
             database.child(eventId).setValue(event)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Etkinlik başarıyla oluşturuldu", Toast.LENGTH_SHORT).show()
@@ -143,4 +143,5 @@ class AddEvent : Fragment() {
                 }
         }
     }
+
 }

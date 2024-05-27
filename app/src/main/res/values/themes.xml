@@ -3,6 +3,7 @@
     <style name="Base.Theme.HobbyApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/hobby_orange</item>
     </style>
 
     <style name="Theme.HobbyApp" parent="Base.Theme.HobbyApp" />

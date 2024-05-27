@@ -34,9 +34,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginStart="110dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="110dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="360dp"
         android:background="@drawable/edittext_background"
         android:hint="E-mailinizi giriniz" />
@@ -49,8 +49,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginEnd="110dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="280dp"
         android:background="@drawable/edittext_background"
         android:hint="Şifrenizi giriniz" />
@@ -68,8 +68,10 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="210dp"
-        android:hint="Giris Yap" />
+        android:text="Giriş Yap"
+        android:textColor="#FFFFFF" />
 
+    />
     <Button
         android:id="@+id/signupbutton"
         android:layout_width="match_parent"
@@ -83,7 +85,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="140dp"
-        android:hint="Kayıt Ol"/>
+        android:text="Kayıt Ol"
+        android:textColor="#FFFFFF"/>
 
     <ImageView
         android:id="@+id/imageView"

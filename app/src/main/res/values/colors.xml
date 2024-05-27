@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="hobby_orange">#ff5757</color>
     <color name="hobby_cream">#f1efe7</color>
+    <color name="green">#009688</color>
+    <color name="red">#98060A</color>
 </resources>

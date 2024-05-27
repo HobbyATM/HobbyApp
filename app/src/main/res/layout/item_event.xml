@@ -30,6 +30,7 @@
             android:id="@+id/buttonJoin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#009688"
             android:text="Join" />
 
         <TextView
@@ -45,6 +46,7 @@
             android:id="@+id/buttonDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#ff5757"
             android:text="Details" />
     </LinearLayout>
 </LinearLayout>

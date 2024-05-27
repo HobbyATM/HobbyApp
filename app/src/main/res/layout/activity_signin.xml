@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="#fff7e6"
+    android:background="@color/hobby_cream"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,9 +21,9 @@
         android:layout_marginStart="130dp"
         android:layout_marginEnd="130dp"
         android:layout_marginBottom="440dp"
-        android:text="Giriş yap"
+        android:text="Giriş Yap"
         android:textAlignment="center"
-        android:textAllCaps="true"
+
         android:textSize="25sp" />
 
     <EditText
@@ -37,8 +37,8 @@
         android:layout_marginStart="123dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="123dp"
-        android:layout_marginBottom="350dp"
-        android:hint="Emailinizi giriniz" />
+        android:layout_marginBottom="360dp"
+        android:hint="E-mailinizi giriniz" />
 
     <EditText
         android:id="@+id/signinpasswordtext"
@@ -51,7 +51,7 @@
         android:layout_marginStart="123dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="280dp"
-        android:hint="Sifrenizi giriniz" />
+        android:hint="Şifrenizi giriniz" />
 
     <Button
         android:id="@+id/signinbutton"
@@ -60,6 +60,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:background="#ff5757"
         android:layout_gravity="center"
         android:layout_marginStart="123dp"
         android:layout_marginTop="15dp"
@@ -75,6 +76,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
+        android:background="#ff5757"
         android:layout_marginStart="123dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="123dp"
@@ -89,11 +91,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="111dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="531dp"
-        app:srcCompat="@drawable/sign_in_element" />
+        app:srcCompat="@drawable/hobbycream_logo" />
 
     <ImageView
         android:id="@+id/imageView4"

@@ -34,7 +34,7 @@ class Profile : Fragment() {
         binding.createdEventsRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.joinedEventsRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        createdEventsAdapter = CreatedEventsAdapter(requireContext(), emptyList())
+        createdEventsAdapter = CreatedEventsAdapter(requireContext(), emptyList(), emptyList())
         joinedEventsAdapter = JoinedEventsAdapter(requireContext(), emptyList(), emptyList())
 
         binding.createdEventsRecyclerView.adapter = createdEventsAdapter
@@ -73,13 +73,15 @@ class Profile : Fragment() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val eventList = mutableListOf<Event>()
+                        val eventIds = mutableListOf<String>()
                         for (eventSnapshot in snapshot.children) {
                             val event = eventSnapshot.getValue(Event::class.java)
                             if (event != null) {
                                 eventList.add(event)
+                                eventIds.add(eventSnapshot.key ?: "")
                             }
                         }
-                        createdEventsAdapter.updateList(eventList)
+                        createdEventsAdapter.updateList(eventList, eventIds)
                     }
 
                     override fun onCancelled(error: DatabaseError) {

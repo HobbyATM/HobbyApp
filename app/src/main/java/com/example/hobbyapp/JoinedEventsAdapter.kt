@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 class JoinedEventsAdapter(
     private val context: Context,
     private var eventList: List<Event>,
-    private var eventIds: List<String> // Event IDs to pass to the dialog
+    private var eventIds: List<String>
 ) : RecyclerView.Adapter<JoinedEventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,12 +27,12 @@ class JoinedEventsAdapter(
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = eventList[position]
-        val eventId = eventIds[position] // Get the corresponding event ID
+        val eventId = eventIds[position]
         holder.textViewName.text = event.eventName
         holder.textViewDate.text = event.eventDate
 
         holder.buttonDetails.setOnClickListener {
-            EventDetailsDialog.show(context, eventId) // Use the static method to show the dialog
+            EventDetailsDialog.show(context, eventId, showParticipants = false)
         }
     }
 
@@ -42,7 +42,7 @@ class JoinedEventsAdapter(
 
     fun updateList(newList: List<Event>, newEventIds: List<String>) {
         eventList = newList
-        eventIds = newEventIds // Update the event IDs
+        eventIds = newEventIds
         notifyDataSetChanged()
     }
 }

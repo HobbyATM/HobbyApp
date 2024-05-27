@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CreatedEventsAdapter(
     private val context: Context,
-    private var eventList: List<Event>
+    private var eventList: List<Event>,
+    private var eventIds: List<String>
 ) : RecyclerView.Adapter<CreatedEventsAdapter.EventViewHolder>() {
 
     inner class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -26,12 +27,12 @@ class CreatedEventsAdapter(
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = eventList[position]
+        val eventId = eventIds[position]
         holder.textViewName.text = event.eventName
         holder.textViewDate.text = event.eventDate
 
         holder.buttonDetails.setOnClickListener {
-            val dialog = EventParticipantsDialog(context, event)
-            dialog.show()
+            EventDetailsDialog.show(context, eventId, showParticipants = true)
         }
     }
 
@@ -39,8 +40,9 @@ class CreatedEventsAdapter(
         return eventList.size
     }
 
-    fun updateList(newList: List<Event>) {
+    fun updateList(newList: List<Event>, newEventIds: List<String>) {
         eventList = newList
+        eventIds = newEventIds
         notifyDataSetChanged()
     }
 }

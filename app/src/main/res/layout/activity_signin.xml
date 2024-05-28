@@ -22,6 +22,7 @@
         android:layout_marginEnd="130dp"
         android:layout_marginBottom="440dp"
         android:text="Giriş Yap"
+        android:fontFamily="@font/leaguespartan_bold"
         android:textAlignment="center"
         android:textSize="25sp" />
 
@@ -87,6 +88,7 @@
         android:text="Kayıt Ol"
         android:textColor="#FFFFFF"/>
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -106,5 +108,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/background_elements" />
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="110dp"
+        android:fontFamily="@font/leaguespartan_bold"
+        android:text="Eğer hesabınız yoksa kayıt ola tıklayın."
+        android:textAlignment="center"
+        android:textSize="12sp" />
 
 </RelativeLayout>

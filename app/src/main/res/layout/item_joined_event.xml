@@ -25,5 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
-        android:text="Detaylar" />
+        android:text="Detayları göster"
+        android:layout_marginLeft="195dp"/>
 </LinearLayout>

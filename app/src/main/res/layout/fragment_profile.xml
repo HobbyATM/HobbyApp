@@ -41,6 +41,12 @@
             android:textSize="16sp"
             android:layout_marginBottom="24dp"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:layout_marginBottom="24dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,8 +60,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            tools:listitem="@layout/item_layout"
-            />
+            tools:listitem="@layout/item_layout" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:layout_marginBottom="24dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,6 +75,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/joined_events_recycler_view"

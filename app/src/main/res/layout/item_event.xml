@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#009688"
+            android:layout_marginEnd="12dp"
             android:text="Join" />
 
         <TextView
@@ -46,7 +47,7 @@
             android:id="@+id/buttonDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#ff5757"
+            android:background="#FFFFFF"
             android:text="Details" />
     </LinearLayout>
 </LinearLayout>

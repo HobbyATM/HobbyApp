@@ -23,7 +23,6 @@
         android:layout_marginBottom="440dp"
         android:text="Giriş Yap"
         android:textAlignment="center"
-
         android:textSize="25sp" />
 
     <EditText

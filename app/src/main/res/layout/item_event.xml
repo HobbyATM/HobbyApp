@@ -41,7 +41,7 @@
             android:id="@+id/textViewJoined"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Joined"
+            android:text="Katıldın"
             android:visibility="gone"
             android:padding="8dp"
             android:textColor="@android:color/holo_green_dark"/>

@@ -9,7 +9,7 @@
         android:id="@+id/textViewEventName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Event Name"
+        android:text="Etkinlik Adı"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -17,42 +17,42 @@
         android:id="@+id/textViewEventDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Event Date"
+        android:text="Etkinlik Tarihi"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewEventDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Event Details"
+        android:text="Detaylar"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewEventLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Event Location"
+        android:text="Konum"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewEventMaxParticipants"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Max Participants"
+        android:text="Max Katilimci"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewCreatedBy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Created By"
+        android:text="Oluşturan Kişi"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewParticipants"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Participants"
+        android:text="Katılımcılar:"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp" />

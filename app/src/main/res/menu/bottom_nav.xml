@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Settings"
+    <item android:title="Ayarlar"
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings"/>
-    <item android:title="Events"
+    <item android:title="Etkinlikler"
         android:id="@+id/home"
         android:icon="@drawable/ic_menu"/>
-    <item android:title="Add"
+    <item android:title="Ekle"
         android:id="@+id/add"
         android:icon="@drawable/add_event"/>
-    <item android:title="Profile"
+    <item android:title="Profil"
         android:id="@+id/profile"
         android:icon="@drawable/ic_person"/>
 </menu>

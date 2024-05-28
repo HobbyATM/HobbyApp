@@ -90,8 +90,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="#5773FF"
             android:text="Konum Seç"
+            android:background="@drawable/rounded_button"
             android:textColor="@color/white"/>
 
         <com.google.android.material.button.MaterialButton
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="#ff5757"
+            android:background="@drawable/rounded_button"
             android:text="Etkinlik Oluştur"
             app:cornerRadius="8dp"
             android:textColor="@android:color/white"/>

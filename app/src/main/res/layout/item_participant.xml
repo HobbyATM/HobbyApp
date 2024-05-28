@@ -10,13 +10,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Participant Name"
+        android:text="Katılımcıların Adı"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textViewParticipantPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone Number"
+        android:text="Telefon Numarası"
         android:textSize="16sp" />
 </LinearLayout>

@@ -16,7 +16,7 @@
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Event Name"
+            android:text="Etkinlik Adı"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -24,7 +24,7 @@
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Event Date"
+            android:text="Etkinlik Tarihi"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -32,5 +32,6 @@
         android:id="@+id/buttonDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Details" />
+        android:background="@drawable/rounded_button"
+        android:text="Detayları Göster" />
 </LinearLayout>

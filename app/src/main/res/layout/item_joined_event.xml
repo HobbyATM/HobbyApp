@@ -24,5 +24,6 @@
         android:id="@+id/buttonDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Details" />
+        android:background="@drawable/rounded_button"
+        android:text="Detaylar" />
 </LinearLayout>

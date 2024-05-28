@@ -9,7 +9,7 @@
         android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Event Name"
+        android:text="Etkinlik Adı"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -17,7 +17,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Event Date"
+        android:text="Etkinlik Tarihi"
         android:textSize="16sp" />
 
     <LinearLayout
@@ -30,9 +30,9 @@
             android:id="@+id/buttonJoin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#009688"
+            android:background="@drawable/rounded_button"
             android:layout_marginEnd="12dp"
-            android:text="Join" />
+            android:text="Katıl" />
 
         <TextView
             android:id="@+id/textViewJoined"
@@ -47,7 +47,7 @@
             android:id="@+id/buttonDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:text="Details" />
+            android:background="@drawable/rounded_button"
+            android:text="Detaylar" />
     </LinearLayout>
 </LinearLayout>

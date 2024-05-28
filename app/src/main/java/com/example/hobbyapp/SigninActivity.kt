@@ -42,7 +42,6 @@ class SigninActivity : AppCompatActivity() {
                         val uid = firebaseAuth.currentUser?.uid
                         if (uid != null) {
                             saveLoginStatus(true, uid)
-                            Toast.makeText(this, "Kayıt Başarıyla Gerçekleşti", Toast.LENGTH_SHORT).show()
                             startMainApp()
                         } else {
                             Toast.makeText(this, "Kullanıcı ID alınamadı", Toast.LENGTH_SHORT).show()
